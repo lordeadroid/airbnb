@@ -90,38 +90,65 @@ nav {
 }
 
 .search-bar {
-  border: 1px solid darkgray;
+  border: 0.5px solid darkgray;
   width: 50%;
   height: 64px;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
   border-radius: 32px;
 
-  & > div {
+  div {
     display: flex;
-    padding: 12px 15px;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0px 32px;
-    width: 34%;
-    gap: 4px;
+    gap: 3px;
 
-    & span:first-child {
+    span:first-child {
       font-size: 12px;
       font-weight: 600;
       color: var(--dark-text-color);
     }
 
-    & span:last-child {
+    span:last-child {
       font-size: 14px;
+      color: red;
       color: var(--light-text-color);
     }
   }
 }
 
+.destination {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 32px;
+}
+
+.booking-dates {
+  display: flex;
+  align-items: center;
+
+  div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.add-guests {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 12px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .search-button {
-  width: 40px;
-  height: 40px;
+  height: 48px;
+  aspect-ratio: 1;
   background-color: red;
   border-radius: 50%;
 }
