@@ -29,9 +29,7 @@ body {
   z-index: 2;
   background-color: white;
   padding: 25px 80px;
-  display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 20px;
   border-bottom: 1px solid var(--border-color);
 }
@@ -51,8 +49,6 @@ nav {
 
 .options {
   font-size: 16px;
-  display: flex;
-  justify-content: center;
   gap: 12px;
 
   & > div {
@@ -84,19 +80,12 @@ nav {
 }
 
 .preferences {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   & > img {
     width: 20px;
   }
 }
 
 .profile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 18px;
   border: 1px solid darkgray;
   padding: 10px;
@@ -141,16 +130,11 @@ nav {
 }
 
 .destination {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
   padding: 0px 32px;
 }
 
 .booking-dates {
-  display: flex;
-  align-items: center;
-
   & > div {
     width: 50%;
     display: flex;
@@ -217,9 +201,6 @@ nav {
     top: -255px;
     left: 225px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }
 
@@ -243,4 +224,12 @@ nav {
 .past-experiences {
   padding: 0px 80px;
   font-size: 32px;
+}
+
+/* reusable styles */
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
