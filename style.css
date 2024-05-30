@@ -197,18 +197,18 @@ nav {
 
   img {
     width: inherit;
-    aspect-ratio: 1;
+    height: 260px;
     border-radius: 10px;
     object-fit: cover;
   }
 
   div {
-    background-color: white;
+    background-color: #eeeeee;
     width: 32px;
     aspect-ratio: 1;
     position: relative;
-    top: -267px;
-    left: 228px;
+    top: -255px;
+    left: 225px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -217,32 +217,23 @@ nav {
 }
 
 .about-listing {
-  font-size: 14px;
   padding: -20px -100px;
+  margin: 8px 0px;
+  font-size: 15px;
+  color: var(--light-text-color);
 
-  div:first-child {
+  > div:first-child {
     font-weight: 700;
+    color: var(--dark-text-color);
   }
 
-  div:nth-child(2) {
-    color: var(--light-text-color);
+  > div:last-child {
+    font-weight: 500;
+    color: var(--dark-text-color);
   }
 }
 
 .past-experiences {
   padding: 10px 80px;
   font-size: 32px;
-}
-
-.share-button {
-  position: relative;
-  top: -268px;
-  left: 229px;
-  background-color: white;
-  width: 32px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
