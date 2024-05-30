@@ -189,33 +189,60 @@ nav {
   width: 270px;
   height: 380px;
   aspect-ratio: 1;
+}
+
+.image-section {
+  width: inherit;
+  margin: 0px 0px -32px 0px;
 
   img {
     width: inherit;
     aspect-ratio: 1;
-    border-radius: 12px;
+    border-radius: 10px;
     object-fit: cover;
   }
 
   div {
-    font-size: 14px;
+    background-color: white;
+    width: 32px;
+    aspect-ratio: 1;
+    position: relative;
+    top: -267px;
+    left: 228px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
-    div:first-child {
-      font-weight: 700;
-    }
+.about-listing {
+  font-size: 14px;
+  padding: -20px -100px;
 
-    div:nth-child(2) {
-      color: var(--light-text-color);
-    }
+  div:first-child {
+    font-weight: 700;
+  }
+
+  div:nth-child(2) {
+    color: var(--light-text-color);
   }
 }
 
 .past-experiences {
-  display: flex;
-  flex-direction: column;
+  padding: 10px 80px;
+  font-size: 32px;
+}
 
-  span {
-    margin: 10px 80px;
-    font-size: 32px;
-  }
+.share-button {
+  position: relative;
+  top: -268px;
+  left: 229px;
+  background-color: white;
+  width: 32px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
