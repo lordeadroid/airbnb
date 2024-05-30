@@ -2,7 +2,7 @@
   --light-text-color: #6a6b6b;
   --dark-text-color: #232322;
   --main-color: #ff385c;
-  --border-color: #dddddd;
+  --border-color: #dfdfdf;
 }
 
 * {
@@ -13,7 +13,7 @@
 
 body {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.4;
   font-family:
     Circular,
     -apple-system,
@@ -24,6 +24,8 @@ body {
 }
 
 .navbar {
+  position: sticky;
+  top: 10px;
   padding: 25px 80px;
   display: flex;
   flex-direction: column;
@@ -203,7 +205,7 @@ nav {
   }
 
   div {
-    background-color: #eeeeee;
+    background-color: var(--border-color);
     width: 32px;
     aspect-ratio: 1;
     position: relative;
