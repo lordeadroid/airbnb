@@ -25,7 +25,9 @@ body {
 
 .navbar {
   position: sticky;
-  top: 10px;
+  top: 0px;
+  z-index: 2;
+  background-color: white;
   padding: 25px 80px;
   display: flex;
   flex-direction: column;
