@@ -126,13 +126,13 @@ nav {
     display: flex;
     gap: 2px;
 
-    & > span:first-child {
+    & span:first-child {
       font-size: 12px;
       font-weight: 600;
       color: var(--dark-text-color);
     }
 
-    & > span:last-child {
+    & span:last-child {
       font-size: 14px;
       color: red;
       color: var(--light-text-color);
@@ -175,6 +175,9 @@ nav {
   aspect-ratio: 1;
   background-color: var(--main-color);
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   & > svg {
     margin: auto;
