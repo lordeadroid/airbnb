@@ -251,6 +251,27 @@ nav {
   font-size: 32px;
 }
 
+footer {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 80px;
+}
+
+.categories {
+  font-size: 14px;
+  padding: 10px 0px;
+  font-weight: 600;
+  color: var(--light-text-color);
+
+  & > div:first-child {
+    font-size: 58px;
+  }
+
+  & > span {
+    padding-right: 20px;
+  }
+}
+
 /* reusable styles */
 
 .center {
