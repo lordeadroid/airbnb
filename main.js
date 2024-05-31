@@ -17,21 +17,12 @@ const changeColor = (containerElement) => {
   });
 };
 
-const hideEvents = (element) => {
-  const body = document.querySelector("body");
-  body.onscroll = (event) => {
-    console.log(event);
-    element.style.display = "none";
-  };
-};
-
 const main = () => {
   const footerElements = document.querySelector(".categories");
   const optionElements = document.querySelector(".options");
 
   changeColor(footerElements);
   changeColor(optionElements);
-  hideEvents(optionElements);
 };
 
 window.onload = main;
