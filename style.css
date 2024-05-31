@@ -87,7 +87,8 @@ nav {
 
 .profile {
   gap: 18px;
-  border: 1px solid darkgray;
+  border: 1px solid var(--border-color);
+  height: 48px;
   padding: 10px;
   border-radius: 25px;
 
@@ -96,7 +97,7 @@ nav {
   }
 
   & > img:last-child {
-    width: 25px;
+    width: 28px;
     border-radius: 50%;
   }
 }
@@ -159,13 +160,35 @@ nav {
   aspect-ratio: 1;
   background-color: var(--main-color);
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   & > svg {
     margin: auto;
     color: white;
+  }
+}
+
+.menu-bar {
+  gap: 32px;
+  width: 100%;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 16px;
+
+  & > img {
+    width: 24px;
+  }
+
+  & > span {
+    font-size: 12px;
   }
 }
 
