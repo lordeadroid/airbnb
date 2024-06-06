@@ -4,6 +4,12 @@ const ELEMENTS = {
   MAIN: "main",
 };
 
+const ATTRIBUTES = {
+  CLASS: "class",
+  SRC: "src",
+  ALT: "alt",
+};
+
 const imageListing = {
   image: "public/images/listing-01.webp",
   imageAlt: "Image of a house",
@@ -20,19 +26,19 @@ const selectElement = (element) => document.querySelector(element);
 
 const createImageSection = (image, imageAlt, shareButton) => {
   const img = createElement(ELEMENTS.IMG);
-  img.setAttribute("src", image);
-  img.setAttribute("alt", imageAlt);
+  img.setAttribute(ATTRIBUTES.SRC, image);
+  img.setAttribute(ATTRIBUTES.ALT, imageAlt);
 
   const shareButtonImage = document.createElement(ELEMENTS.IMG);
-  shareButtonImage.setAttribute("src", shareButton);
-  shareButtonImage.setAttribute("alt", "listing share button");
+  shareButtonImage.setAttribute(ATTRIBUTES.SRC, shareButton);
+  shareButtonImage.setAttribute(ATTRIBUTES.ALT, "listing share button");
 
   const shareButtonContainer = document.createElement(ELEMENTS.DIV);
-  shareButtonContainer.setAttribute("class", "center");
+  shareButtonContainer.setAttribute(ATTRIBUTES.CLASS, "center");
   shareButtonContainer.appendChild(shareButtonImage);
 
   const imageSection = createElement(ELEMENTS.DIV);
-  imageSection.setAttribute("class", "image-section");
+  imageSection.setAttribute(ATTRIBUTES.CLASS, "image-section");
   imageSection.appendChild(shareButtonContainer);
 
   imageSection.appendChild(img);
@@ -48,7 +54,7 @@ const createAboutSection = (about, price, host) => {
   priceElement.innerText = `$${price} per guest`;
 
   const aboutSection = createElement(ELEMENTS.DIV);
-  aboutSection.setAttribute("class", "about-listing");
+  aboutSection.setAttribute(ATTRIBUTES.CLASS, "about-listing");
   aboutSection.appendChild(aboutElement);
   aboutSection.appendChild(hostElement);
   aboutSection.appendChild(priceElement);
@@ -58,7 +64,7 @@ const createAboutSection = (about, price, host) => {
 
 const addListings = () => {
   const listingContainer = createElement(ELEMENTS.DIV);
-  listingContainer.setAttribute("class", "listings");
+  listingContainer.setAttribute(ATTRIBUTES.CLASS, "listings");
 
   imageListings.forEach((imageListing) => {
     const { image, imageAlt, shareButton, price, host, about } = imageListing;
@@ -67,7 +73,7 @@ const addListings = () => {
     const aboutSection = createAboutSection(about, price, host);
 
     const listing = document.createElement(ELEMENTS.DIV);
-    listing.setAttribute("class", "listing");
+    listing.setAttribute(ATTRIBUTES.CLASS, "listing");
     listing.appendChild(imageSection);
     listing.appendChild(aboutSection);
 
@@ -103,7 +109,7 @@ const modifyColorOnClick = (containerElement) => {
 
 const addPastExperiences = () => {
   const heading = createElement(ELEMENTS.DIV);
-  heading.setAttribute("class", "past-experiences");
+  heading.setAttribute(ATTRIBUTES.CLASS, "past-experiences");
   heading.innerText = "Past experiences";
 
   const main = selectElement(ELEMENTS.MAIN);
