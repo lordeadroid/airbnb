@@ -1,6 +1,7 @@
 const ELEMENTS = {
   DIV: "div",
   IMG: "img",
+  MAIN: "main",
 };
 
 const imageListing = {
@@ -12,9 +13,10 @@ const imageListing = {
   about: "Wake up in the Musee d`Orsay",
 };
 
-const imageListings = new Array(13).fill(imageListing);
+const imageListings = new Array(12).fill(imageListing);
 
-const createElement = (elementType) => document.createElement(elementType);
+const createElement = (element) => document.createElement(element);
+const selectElement = (element) => document.querySelector(element);
 
 const createImageSection = (image, imageAlt, shareButton) => {
   const img = createElement(ELEMENTS.IMG);
@@ -43,36 +45,37 @@ const createAboutSection = (about, price, host) => {
   const hostElement = createElement(ELEMENTS.DIV);
   hostElement.innerText = `Hosted by ${host}`;
   const priceElement = createElement(ELEMENTS.DIV);
-  priceElement.innerText = `$ ${price} per guest`;
+  priceElement.innerText = `$${price} per guest`;
 
-  return [aboutElement, hostElement, priceElement];
+  const aboutSection = createElement(ELEMENTS.DIV);
+  aboutSection.setAttribute("class", "about-listing");
+  aboutSection.appendChild(aboutElement);
+  aboutSection.appendChild(hostElement);
+  aboutSection.appendChild(priceElement);
+
+  return aboutSection;
 };
 
 const addListings = () => {
+  const listingContainer = createElement(ELEMENTS.DIV);
+  listingContainer.setAttribute("class", "listings");
+
   imageListings.forEach((imageListing) => {
     const { image, imageAlt, shareButton, price, host, about } = imageListing;
 
     const imageSection = createImageSection(image, imageAlt, shareButton);
-    const [aboutElement, hostElement, priceElement] = createAboutSection(
-      about,
-      price,
-      host,
-    );
-    const aboutSection = createElement(ELEMENTS.DIV);
-    aboutSection.setAttribute("class", "about-listing");
-    aboutSection.appendChild(aboutElement);
-    aboutSection.appendChild(hostElement);
-    aboutSection.appendChild(priceElement);
+    const aboutSection = createAboutSection(about, price, host);
 
     const listing = document.createElement(ELEMENTS.DIV);
     listing.setAttribute("class", "listing");
-
-    const listingContainer = document.querySelector(".listings");
     listing.appendChild(imageSection);
     listing.appendChild(aboutSection);
 
     listingContainer.appendChild(listing);
   });
+
+  const main = selectElement(ELEMENTS.MAIN);
+  main.appendChild(listingContainer);
 };
 
 const removeColor = (element) => {
@@ -98,12 +101,23 @@ const modifyColorOnClick = (containerElement) => {
   });
 };
 
+const addPastExperiences = () => {
+  const heading = createElement(ELEMENTS.DIV);
+  heading.setAttribute("class", "past-experiences");
+  heading.innerText = "Past experiences";
+
+  const main = selectElement(ELEMENTS.MAIN);
+  main.appendChild(heading);
+};
+
 const main = () => {
-  const footerElements = document.querySelector(".categories");
-  const optionElements = document.querySelector(".options");
+  const footerElements = selectElement(".categories");
+  const optionElements = selectElement(".options");
 
   modifyColorOnClick(footerElements);
   modifyColorOnClick(optionElements);
+  addListings();
+  addPastExperiences();
   addListings();
 };
 
