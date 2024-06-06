@@ -210,13 +210,15 @@ nav {
 
 .image-section {
   width: inherit;
-  margin: 0px 0px -32px 0px;
+  height: 280px;
 
   & > img {
     width: inherit;
     height: 260px;
     border-radius: 10px;
     object-fit: cover;
+    position: relative;
+    top: -32px;
   }
 
   & > div {
@@ -224,9 +226,15 @@ nav {
     width: 32px;
     aspect-ratio: 1;
     position: relative;
-    top: -255px;
-    left: 225px;
+    top: 10px;
+    left: 230px;
     border-radius: 50%;
+    z-index: 1;
+
+    & > img {
+      height: 16px;
+      aspect-ratio: 1;
+    }
   }
 }
 
