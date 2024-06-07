@@ -14,8 +14,13 @@
 body {
   font-size: 16px;
   line-height: 1.4;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    Helvetica Neue, sans-serif;
+  font-family:
+    Circular,
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    Helvetica Neue,
+    sans-serif;
 }
 
 .navbar {
@@ -96,7 +101,7 @@ nav {
 }
 
 .profile-option {
-  height: 10rem;
+  height: 12rem;
   width: 15rem;
   background-color: white;
   color: var(--light-text-color);
@@ -104,14 +109,15 @@ nav {
   flex-direction: column;
   position: absolute;
   z-index: 2;
-  top: 5rem;
+  top: 5.5rem;
   border: 1px solid var(--border-color);
   border-radius: 0.75rem;
   padding-left: 1rem;
   justify-content: center;
+  box-shadow: 0 0 1rem var(--border-color);
 
   & > span {
-    margin: 0.5rem 0rem;
+    margin: 0.75rem 0rem;
   }
 }
 
