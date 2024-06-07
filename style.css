@@ -14,13 +14,8 @@
 body {
   font-size: 16px;
   line-height: 1.4;
-  font-family:
-    Circular,
-    -apple-system,
-    BlinkMacSystemFont,
-    Roboto,
-    Helvetica Neue,
-    sans-serif;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
 }
 
 .navbar {
@@ -97,6 +92,26 @@ nav {
   & > img:last-child {
     width: 28px;
     border-radius: 50%;
+  }
+}
+
+.profile-option {
+  height: 10rem;
+  width: 15rem;
+  background-color: white;
+  color: var(--light-text-color);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  top: 5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding-left: 1rem;
+  justify-content: center;
+
+  & > span {
+    margin: 0.5rem 0rem;
   }
 }
 
@@ -287,4 +302,8 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.hidden {
+  display: none;
 }

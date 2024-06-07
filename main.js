@@ -89,7 +89,7 @@ const createListings = (numberOfElements) => {
   const imageListingsElements = imageListings.map(createListingElement);
   const main = selectElement(ELEMENTS.MAIN);
 
-  addChildToParent(listingContainer, imageListingsElements);
+  appendElements(listingContainer, imageListingsElements);
   main.appendChild(listingContainer);
 };
 
@@ -143,7 +143,7 @@ const createMenuOption = (menuOption) => {
   return menuOptionElement;
 };
 
-const addChildToParent = (container, elements) => {
+const appendElements = (container, elements) => {
   elements.forEach((element) => {
     container.appendChild(element);
   });
@@ -155,7 +155,18 @@ const createMenuBar = (numberOfElements) => {
   const menuBarContainer = selectElement(".menu-bar");
   const menuElements = menuOptions.map(createMenuOption);
 
-  addChildToParent(menuBarContainer, menuElements);
+  appendElements(menuBarContainer, menuElements);
+};
+
+const loginOptions = ["Sign up", "Log in", "Airbnb your home", "Help center"];
+
+const loginMenu = () => {
+  const loginButton = selectElement(".profile");
+  loginButton.onclick = (_event) => {
+    const profileOption = selectElement(".profile-option");
+    const display = profileOption.style.display === "flex" ? "none" : "flex";
+    profileOption.style.display = display;
+  };
 };
 
 const main = () => {
@@ -170,6 +181,8 @@ const main = () => {
   createListings(13);
 
   createMenuBar(40);
+
+  loginMenu();
 };
 
 window.onload = main;
