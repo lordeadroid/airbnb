@@ -2,6 +2,7 @@ const ELEMENTS = {
   DIV: "div",
   IMG: "img",
   MAIN: "main",
+  SPAN: "span",
 };
 
 const ATTRIBUTES = {
@@ -17,6 +18,12 @@ const imageListing = {
   price: "0",
   host: "Matheiu Lehanneur",
   about: "Wake up in the Musee d`Orsay",
+};
+
+const menuOption = {
+  imageSrc: "public/images/menu-option-01.jpg",
+  alt: "image for menu option",
+  about: "Icons",
 };
 
 const imageListings = new Array(12).fill(imageListing);
@@ -116,6 +123,39 @@ const addPastExperiences = () => {
   main.appendChild(heading);
 };
 
+const createMenuOption = (menuOption) => {
+  const { imageSrc, alt, about } = menuOption;
+
+  const img = createElement(ELEMENTS.IMG);
+  img.setAttribute(ATTRIBUTES.SRC, imageSrc);
+  img.setAttribute(ATTRIBUTES.ALT, alt);
+
+  const aboutMenu = createElement(ELEMENTS.SPAN);
+  aboutMenu.innerText = about;
+
+  const menuOptionElement = createElement(ELEMENTS.DIV);
+  menuOptionElement.setAttribute(ATTRIBUTES.CLASS, "menu center");
+  menuOptionElement.appendChild(img);
+  menuOptionElement.appendChild(aboutMenu);
+
+  return menuOptionElement;
+};
+
+const addChild = (container, elements) => {
+  elements.forEach((element) => {
+    container.appendChild(element);
+  });
+};
+
+const createMenuBar = () => {
+  const menuOptions = new Array(40).fill(menuOption);
+
+  const menuBarContainer = selectElement(".menu-bar");
+  const menuElements = menuOptions.map(createMenuOption);
+
+  addChild(menuBarContainer, menuElements);
+};
+
 const main = () => {
   const footerElements = selectElement(".categories");
   const optionElements = selectElement(".options");
@@ -125,6 +165,8 @@ const main = () => {
   addListings();
   addPastExperiences();
   addListings();
+
+  createMenuBar();
 };
 
 window.onload = main;
