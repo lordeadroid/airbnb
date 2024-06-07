@@ -26,8 +26,6 @@ const menuOption = {
   about: "Icons",
 };
 
-const imageListings = new Array(12).fill(imageListing);
-
 const createElement = (element) => document.createElement(element);
 const selectElement = (element) => document.querySelector(element);
 
@@ -69,25 +67,29 @@ const createAboutSection = (about, price, host) => {
   return aboutSection;
 };
 
-const addListings = () => {
+const createListingElement = (imageListing) => {
+  const { image, imageAlt, shareButton, price, host, about } = imageListing;
+
+  const imageSection = createImageSection(image, imageAlt, shareButton);
+  const aboutSection = createAboutSection(about, price, host);
+
+  const listing = document.createElement(ELEMENTS.DIV);
+  listing.setAttribute(ATTRIBUTES.CLASS, "listing");
+  listing.appendChild(imageSection);
+  listing.appendChild(aboutSection);
+
+  return listing;
+};
+
+const createListings = (numberOfElements) => {
+  const imageListings = new Array(numberOfElements).fill(imageListing);
   const listingContainer = createElement(ELEMENTS.DIV);
   listingContainer.setAttribute(ATTRIBUTES.CLASS, "listings");
 
-  imageListings.forEach((imageListing) => {
-    const { image, imageAlt, shareButton, price, host, about } = imageListing;
-
-    const imageSection = createImageSection(image, imageAlt, shareButton);
-    const aboutSection = createAboutSection(about, price, host);
-
-    const listing = document.createElement(ELEMENTS.DIV);
-    listing.setAttribute(ATTRIBUTES.CLASS, "listing");
-    listing.appendChild(imageSection);
-    listing.appendChild(aboutSection);
-
-    listingContainer.appendChild(listing);
-  });
-
+  const imageListingsElements = imageListings.map(createListingElement);
   const main = selectElement(ELEMENTS.MAIN);
+
+  addChildToParent(listingContainer, imageListingsElements);
   main.appendChild(listingContainer);
 };
 
@@ -141,19 +143,19 @@ const createMenuOption = (menuOption) => {
   return menuOptionElement;
 };
 
-const addChild = (container, elements) => {
+const addChildToParent = (container, elements) => {
   elements.forEach((element) => {
     container.appendChild(element);
   });
 };
 
-const createMenuBar = () => {
-  const menuOptions = new Array(40).fill(menuOption);
+const createMenuBar = (numberOfElements) => {
+  const menuOptions = new Array(numberOfElements).fill(menuOption);
 
   const menuBarContainer = selectElement(".menu-bar");
   const menuElements = menuOptions.map(createMenuOption);
 
-  addChild(menuBarContainer, menuElements);
+  addChildToParent(menuBarContainer, menuElements);
 };
 
 const main = () => {
@@ -162,11 +164,12 @@ const main = () => {
 
   modifyColorOnClick(footerElements);
   modifyColorOnClick(optionElements);
-  addListings();
-  addPastExperiences();
-  addListings();
 
-  createMenuBar();
+  createListings(12);
+  addPastExperiences();
+  createListings(13);
+
+  createMenuBar(40);
 };
 
 window.onload = main;
